@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { Suspense } from 'react';
+import Navigation from './components/Navigation';
+import Spinner from './components/Spinner';
+import MainPage from './pages/MainPage';
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <p>Hello World!</p>
-      <button onClick={() => setCount((count) => count + 1)}>
-        Count is {count}
-      </button>
+    <div className="w-full h-full">
+      <Navigation />
+      <Suspense fallback={<Spinner />}>
+        <MainPage />
+      </Suspense>
     </div>
   );
 };
