@@ -1,3 +1,4 @@
+import LazyImage from './LazyImage';
 import Tag from './Tag';
 
 interface RecipeCardProps {
@@ -15,7 +16,7 @@ export default function RecipeCard({
 }: RecipeCardProps) {
   return (
     <div className="w-[330px] h-[270px] flex flex-col rounded-2xl overflow-hidden">
-      <img src={src} alt={title} className="object-cover overflow-hidden" />
+      <LazyImage src={src} alt={title} width={330} height={150} />
       <div className="flex flex-col bg-white gap-4 p-4">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">{title}</h1>
