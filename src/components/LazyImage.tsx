@@ -5,9 +5,16 @@ interface LazyImageProps {
   alt: string;
   width: number;
   height: number;
+  className?: string;
 }
 
-export default function LazyImage({ src, alt, width, height }: LazyImageProps) {
+export default function LazyImage({
+  src,
+  alt,
+  width,
+  height,
+  className,
+}: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -22,12 +29,14 @@ export default function LazyImage({ src, alt, width, height }: LazyImageProps) {
         ref={imgRef}
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-700 ${
+        className={`w-full h-full object-cover transition-opacity duration-700 ${className} ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
       />
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        <div
+          className={`absolute inset-0 bg-gray-200 animate-pulse ${className}`}
+        />
       )}
     </div>
   );
