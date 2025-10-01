@@ -1,6 +1,5 @@
-import { lazy, useState } from 'react';
-
-const RecipeGrid = lazy(() => import('../components/RecipeGrid'));
+import { useState } from 'react';
+import RecipeGrid from '../components/RecipeGrid';
 
 export default function MainPage() {
   const [page, setPage] = useState(1);
