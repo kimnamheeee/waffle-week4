@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Spinner from './components/Spinner';
-import DetailPage from './pages/DetailPage';
-import MainPage from './pages/MainPage';
+const DetailPage = lazy(() => import('./pages/DetailPage'));
+const MainPage = lazy(() => import('./pages/MainPage'));
 
 const App = () => {
   return (
