@@ -27,7 +27,7 @@ export default function RecipeGrid({
     };
     fetchData();
   }, [page, pageSize]);
-  const totalPages = Math.max(1, Math.ceil(res?.total ?? 0 / pageSize));
+  const totalPages = Math.max(1, Math.ceil((res?.total ?? 0) / pageSize));
 
   return (
     <div className="flex flex-col gap-6">
