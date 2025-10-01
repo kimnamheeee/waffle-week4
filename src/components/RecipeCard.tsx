@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import LazyImage from './LazyImage';
 import Tag from './Tag';
 
 interface RecipeCardProps {
+  id: number;
   title: string;
   difficulty: string;
   tags: string[];
@@ -9,13 +11,17 @@ interface RecipeCardProps {
 }
 
 export default function RecipeCard({
+  id,
   title,
   difficulty,
   tags,
   src,
 }: RecipeCardProps) {
   return (
-    <div className="w-[330px] h-[270px] flex flex-col rounded-2xl overflow-hidden">
+    <Link
+      to={`/recipe/${id}`}
+      className="w-[330px] h-[270px] flex flex-col rounded-2xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+    >
       <LazyImage src={src} alt={title} width={330} height={150} />
       <div className="flex flex-col bg-white gap-4 p-4">
         <div className="flex justify-between items-center">
@@ -28,6 +34,6 @@ export default function RecipeCard({
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -35,6 +35,7 @@ export default function RecipeGrid({
         {res?.recipes.map((r: Recipe) => (
           <RecipeCard
             key={r.id}
+            id={r.id}
             title={r.name}
             difficulty={r.difficulty}
             src={r.image}
